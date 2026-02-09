@@ -1,3 +1,4 @@
+# LEMBRETE: - Usar o Live Server no arquivo html
 # Teste FrontEnd UpNext
 
 Olá,
