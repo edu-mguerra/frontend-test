@@ -1,17 +1,188 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <title>YpNext FrontEnd Test - Greenthumb</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./index.scss" />
-  </head>
 
-  <body>
-    <img src="images/icons/logo-white.svg" alt="Greenthumb" />
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenFriend - Find Your Perfect Plant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo-text">
+            <h1>GreenFriend</h1>
+            <p class="tagline">Find your plant companion</p>
+          </div>
+        </div>
+        <button class="toggle-sidebar" id="toggle-sidebar">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="close-mobile" id="close-mobile">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="filters-panel">
+        <div class="filter-group">
+          <div class="filter-header">
+            <img src="images/icons/low-sun.svg" alt="Sun" class="filter-icon">
+            <h3>Sunlight</h3>
+          </div>
+          <div class="filter-options">
+            <button class="filter-btn" data-filter="sun" data-value="high">
+              <img src="images/icons/low-sun.svg" alt="High">
+              <span>High</span>
+            </button>
+            <button class="filter-btn" data-filter="sun" data-value="low">
+              <img src="images/icons/low-sun.svg" alt="Low">
+              <span>Low</span>
+            </button>
+            <button class="filter-btn" data-filter="sun" data-value="no">
+              <img src="images/icons/no-sun.svg" alt="No">
+              <span>None</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-header">
+            <img src="images/icons/3-drops.svg" alt="Water" class="filter-icon">
+            <h3>Water</h3>
+          </div>
+          <div class="filter-options">
+            <button class="filter-btn" data-filter="water" data-value="daily">
+              <img src="images/icons/3-drops.svg" alt="Daily">
+              <span>Daily</span>
+            </button>
+            <button class="filter-btn" data-filter="water" data-value="regularly">
+              <img src="images/icons/two-drops.svg" alt="Regular">
+              <span>Regular</span>
+            </button>
+            <button class="filter-btn" data-filter="water" data-value="rarely">
+              <img src="images/icons/1-drop.svg" alt="Rare">
+              <span>Rare</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-header">
+            <img src="images/icons/pet.svg" alt="Pets" class="filter-icon">
+            <h3>Pet Safety</h3>
+          </div>
+          <div class="filter-options">
+            <button class="filter-btn" data-filter="pets" data-value="false">
+              <img src="images/icons/pet.svg" alt="Safe">
+              <span>Pet Friendly</span>
+            </button>
+            <button class="filter-btn" data-filter="pets" data-value="true">
+              <img src="images/icons/toxic.svg" alt="Toxic">
+              <span>Toxic</span>
+            </button>
+          </div>
+        </div>
+
+        <button class="clear-btn" id="clear-filters">
+          <i class="fas fa-times"></i>
+          Clear All Filters
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-number" id="total-plants">0</span>
+            <span class="stat-label">Total Plants</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="filtered-plants">0</span>
+            <span class="stat-label">Showing</span>
+          </div>
+        </div>
+
+        <div class="language-selector">
+          <button class="lang-btn" data-lang="en">
+            <img src="https://flagcdn.com/w20/us.png" alt="English">
+            <span>EN</span>
+          </button>
+          <button class="lang-btn active" data-lang="pt">
+            <img src="https://flagcdn.com/w20/br.png" alt="Português">
+            <span>PT</span>
+          </button>
+          <button class="lang-btn" data-lang="es">
+            <img src="https://flagcdn.com/w20/es.png" alt="Español">
+            <span>ES</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <div class="top-bar">
+        <button class="mobile-toggle" id="mobile-toggle">
+          <i class="fas fa-filter"></i>
+          Filters
+        </button>
+
+        <div class="user-actions">
+          <button class="action-btn" id="translate-btn">
+            <i class="fas fa-language"></i>
+            Translate
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-banner">
+        <div class="hero-text">
+          <h2>Find Your Perfect <span class="highlight">Green Friend</span></h2>
+          <p>Select your preferences and discover plants that match your lifestyle</p>
+        </div>
+        <img src="images/hero/desktop/plantperson.png" alt="Plant Person" class="hero-illustration">
+      </div>
+
+      <div class="content-wrapper">
+        <div class="results-header">
+          <h3>Recommended Plants</h3>
+          <div class="controls">
+            <div class="sort-options">
+              <span>Sort by:</span>
+              <select id="sort-select">
+                <option value="name">Name (A-Z)</option>
+                <option value="price-low">Price (Low to High)</option>
+                <option value="price-high">Price (High to Low)</option>
+              </select>
+            </div>
+            <button class="view-toggle" id="view-toggle">
+             
+            </button>
+          </div>
+        </div>
+
+        <div class="plants-grid" id="plants-grid">
+        </div>
+
+        <div class="plants-list hidden" id="plants-list">
+        </div>
+
+        <div class="no-results" id="no-results">
+          <img src="images/illustrations/no-results.png" alt="No Results">
+          <h4>No plants match your criteria</h4>
+          <p>Try adjusting your filters or clear them to see all plants</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
 </html>
